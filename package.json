@@ -1,0 +1,27 @@
+{
+    "name": "RadioGroup",
+    "studioName": "RadioGroup",
+    "category": "Custom Widgets",
+    "iconPath": "/icons/widget.svg",
+    "author": "Widget Developer",
+    "contributors": [
+        "Developer 1",
+        "Developer 2"
+    ],
+    "version": "1.0.0",
+    "copyright": "(c) 2015 Widget Developer",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "keywords": ["wakanda", "widget"],
+    "engines": {"wakanda": ">= 8"},
+    "license": "MIT",
+    "loadDependencies": [
+        {"id": "Widget_V2"},
+        {"id": "Select/package.json", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
+        {"id": "RadioGroup/widget.js", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
+        {"id": "RadioGroup/css/widget.css", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
+        {"id": "RadioGroup/designer.js", "studioOnly": true, "version": "1.0.0", "path": "WIDGETS_CUSTOM"}
+    ]
+}
