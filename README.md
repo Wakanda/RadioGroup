@@ -1,22 +1,1 @@
-## RadioGroup widget for [Wakanda](http://www.wakanda.org)
-Intro text + link to the doc.
-
-### Properties
-This widget has the following properties:
-
-* ...
-
-For more information, refer to the [Widget v2 Properties](http://doc.wakanda.org/WakandaStudio/help/Title/en/page4608.html "Widget v2 Properties") chapter.
-
-### Events
-The following events can be intercepted for this widget:
-
-* ...
-
-For more information, refer to the [Widget v2 Events](http://doc.wakanda.org/WakandaStudio/help/Title/en/page4609.html "Widget v2 Events") chapter.
-
-### Styles
-You can customize the look of each Slider by making changes in the __Styles__ tab. For more information, refer to the [Widget v2 Styles](http://doc.wakanda.org/WakandaStudio0/help/Title/en/page4611.html "Widget v2 Styles") chapter.
-
-### API
-The RadioGroup widget has its own [API](...) ... and also inherits from the [Wakanda Widgets Instance API](http://doc.wakanda.org/WakandaStudio/help/Title/en/page4066.html "Wakanda Widgets Instance API").
+## RadioGroup Widget for [Wakanda](http://wakanda.org)The __RadioGroup__ widget allows you to display radio boxes### PropertiesThis widget has the following properties:See Select widget### More InformationYou can install a custom widget by using the [Add-ons Extension](http://doc.wakanda.org/WakandaStudio/help/Title/en/page4263.html "Add-ons Extension"). For more information, refer to the [Installing a Custom Widget](http://doc.wakanda.org/WakandaStudio/help/Title/en/page3869.html#1056003 "Installing a Custom Widget") manual.For more information about creating a custom widget, refer to the [Widgets v2 Creating a Widget](http://doc.wakanda.org/Wakanda/help/Title/en/page3849.html "Widgets v2 Creating a Widget") manual.
