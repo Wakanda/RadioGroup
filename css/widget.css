@@ -1,0 +1,72 @@
+/*** radioGroup bootstrap compliant ***/
+
+.waf-theme input[type="radio"] {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+.waf-theme input[type="radio"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+
+.waf-theme input[type="file"]:focus,
+.waf-theme input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.waf-theme .radio {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.waf-theme .radio label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.waf-theme .radio input[type="radio"],
+.waf-theme .radio-inline input[type="radio"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: -20px;
+}
+.waf-theme .radio + .waf-theme .radio {
+  margin-top: -5px;
+}
+.waf-theme .radio-inline {
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.waf-theme .radio-inline + .waf-theme .radio-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+.waf-theme input[type="radio"][disabled],
+.waf-theme input[type="radio"].disabled,
+.waf-theme fieldset[disabled] input[type="radio"] {
+  cursor: not-allowed;
+}
+.waf-theme .radio-inline.disabled,
+.waf-theme fieldset[disabled] .radio-inline {
+  cursor: not-allowed;
+}
+.waf-theme .radio.disabled label,
+.waf-theme fieldset[disabled] .radio label {
+  cursor: not-allowed;
+}
