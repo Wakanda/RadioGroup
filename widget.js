@@ -1,4 +1,3 @@
-var aa;
 WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select) {
     "use strict";
 
@@ -56,9 +55,9 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
             m = '<input type="radio" name="'+this.name()+'" value="'+v+'">\n' + label;
 
             if (this.inline()) {
-                m = '<label class="radio-inline">\n'+m+'\n</label>\n';
+                m = '<label for="'+this.name()+'" class="radio-inline">\n'+m+'\n</label>\n';
             } else {
-                m = '<div class="radio"><label>'+m+'</label></div>';
+                m = '<div class="radio"><label for="'+this.name()+'">'+m+'</label></div>';
             }
 
             return m;
@@ -66,14 +65,15 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
         init: function() {
  	        var that = this;
             select.prototype.init.call(this);
- 
+
             this.name.onChange(function(){ this.items.getPage(this.render); });
             this.inline.onChange(function(){ this.items.getPage(this.render); });
- 
+
             $(this.node).on('mousedown', function(event) {
+
                 var node = event.target;
                 if(node.tagName === 'LABEL') {
-                    node = document.getElementById(node.for);
+                    node = node.getElementsByTagName("input")[0];
                 }
                 if(node.tagName !== 'INPUT') {
                     return;
