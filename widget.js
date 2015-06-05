@@ -1,4 +1,3 @@
-var aa;
 WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select) {
     "use strict";
 
@@ -13,7 +12,7 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
         name: widget.property({
             type: 'string',
             description: "",
-            defaultValue: "radioGroup",
+            defaultValue: "",
             bindable: false
         }),
         getSelectedIndex: function() {
@@ -56,30 +55,57 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
             m = '<input type="radio" name="'+this.name()+'" value="'+v+'">\n' + label;
 
             if (this.inline()) {
-                m = '<label class="radio-inline">\n'+m+'\n</label>\n';
+                m = '<label for="'+this.name()+'" class="radio-inline">\n'+m+'\n</label>\n';
             } else {
-                m = '<div class="radio"><label>'+m+'</label></div>';
+                m = '<div class="radio"><label for="'+this.name()+'">'+m+'</label></div>';
             }
 
             return m;
         },
+        _selectedIndex: function() {
+            var radioButtons = $(this.node).find("input");
+            var selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
+            return selectedIndex;
+        },
+        disable: function(state) {
+            if (state) {
+                $(this.node).find("input").attr("disabled", "disabled").addClass("disabled");
+            } else {
+                $(this.node).find("input").attr("disabled", "").removeClass("disabled");
+            }
+            
+        },
         init: function() {
  	        var that = this;
             select.prototype.init.call(this);
- 
+
+            if (this.name() === "") {
+                this.name(this.id);
+            }
+
             this.name.onChange(function(){ this.items.getPage(this.render); });
             this.inline.onChange(function(){ this.items.getPage(this.render); });
- 
+
+            if(this.selectItem()) {
+                this._selectSubscriber = this.items.subscribe('currentElementChange', function() {
+                    var position = this.items().getPosition();
+                    $($(that.node).find("input")[position]).attr('checked', true);
+                    this._setValueByPosition(position);
+                }, this);
+            }
+
             $(this.node).on('mousedown', function(event) {
+
                 var node = event.target;
                 if(node.tagName === 'LABEL') {
-                    node = document.getElementById(node.for);
+                    node = node.getElementsByTagName("input")[0];
                 }
                 if(node.tagName !== 'INPUT') {
                     return;
                 }
                 var $node = $(node);
-                if(node.checked && that.allowEmpty()) {
+
+                if(node.checked) { // && that.allowEmpty()
                     var uncheck = function(){
                         setTimeout(function() {
                             node.checked = false;
@@ -97,7 +123,7 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
                     $node.one('mouseout', unbind);
                 } else {
                     node.checked = true;
-                    var position = that.getSelectedIndex();
+                    var position = that._selectedIndex();
                     that._setValueByPosition(position);
                 }
 
@@ -107,7 +133,8 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
 
     if (radio.multiple)
     	radio.removeProperty("multiple");
-
+    
+    radio.removeProperty("allowEmpty");
     radio.removeClass("form-control");
 
     return radio;
