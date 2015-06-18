@@ -70,3 +70,8 @@ input[type="checkbox"]:focus {
 .waf-theme fieldset[disabled] .radio label {
   cursor: not-allowed;
 }
+
+div[data-type=RadioGroup] {
+  padding: 5px;
+  overflow: hidden;
+}

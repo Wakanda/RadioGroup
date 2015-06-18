@@ -1,27 +1,28 @@
 {
     "name": "RadioGroup",
-    "studioName": "RadioGroup",
-    "category": "Custom Widgets",
+    "studioName": "Radion Button Group",
+    "category": "Form Controls",
+    "type": "widget",
     "iconPath": "/icons/widget.svg",
-    "author": "Widget Developer",
-    "contributors": [
-        "Developer 1",
-        "Developer 2"
-    ],
+    "author": "Widget SAS",
+    "contributors": [],
     "version": "1.0.0",
     "copyright": "(c) 2015 Widget Developer",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/Wakanda/RadioGroup"
     },
-    "keywords": ["wakanda", "widget"],
-    "engines": {"wakanda": ">= 8"},
+    "keywords": ["wakanda", "widget", "radio"],
+    "engines": {"wakanda": ">= 11"},
     "license": "MIT",
+    "testDependencies": [
+        "tests/widget-spec.js"
+    ],
     "loadDependencies": [
-        {"id": "Widget_V2"},
-        {"id": "Select/package.json", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
-        {"id": "RadioGroup/widget.js", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
-        {"id": "RadioGroup/css/widget.css", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
-        {"id": "RadioGroup/designer.js", "studioOnly": true, "version": "1.0.0", "path": "WIDGETS_CUSTOM"}
-    ]
+        {"package": "Select"},
+        {"file": "widget.js"},
+        {"file": "css/widget.css"},
+        {"file": "designer.js","studioOnly": true}
+    ],
+    "hash": ""
 }
