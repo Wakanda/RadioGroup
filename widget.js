@@ -67,13 +67,11 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
             var selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
             return selectedIndex;
         },
-        disable: function(state) {
-            if (state) {
-                $(this.node).find("input").attr("disabled", "disabled").addClass("disabled");
-            } else {
-                $(this.node).find("input").attr("disabled", "").removeClass("disabled");
-            }
-            
+        disable: function() {
+            $(this.node).find("input").attr("disabled", "disabled").addClass("disabled");
+        },
+        enable: function() {
+            $(this.node).find("input").attr("disabled", "").removeClass("disabled");
         },
         init: function() {
  	        var that = this;
@@ -86,7 +84,7 @@ WAF.define('RadioGroup', ['waf-core/widget', 'Select'], function(widget, select)
             this.name.onChange(function(){ this.items.getPage(this.render); });
             this.inline.onChange(function(){ this.items.getPage(this.render); });
 
-            if(this.selectItem()) {
+            if(this.synchronize()) {
                 this._selectSubscriber = this.items.subscribe('currentElementChange', function() {
                     var position = this.items().getPosition();
                     $($(that.node).find("input")[position]).attr('checked', true);

@@ -9,6 +9,8 @@
     RadioGroup.addLabel();
 
     RadioGroup.customizeProperty('inline', {title: 'Display inline'});
+    RadioGroup.customizeProperty('name', {title: 'Internal name'});
+    RadioGroup.customizeProperty('synchronize', {title: 'Synchronize items'});
 
     RadioGroup.doAfter('init', function() {
 
@@ -17,8 +19,8 @@
             hideAttributes(this, binding);
         }, this);
 
-        this.selectItem.onChange(function() {
-            if(this.selectItem()) {
+        this.synchronize.onChange(function() {
+            if(this.synchronize()) {
                 this.value.oldBinding = this.value.boundDatasource();
                 if(this.value.oldBinding) {
                     this.value.oldBinding = this.value.oldBinding.toString();
@@ -48,7 +50,7 @@
         Designer.ui.form.property.showAttribute('data-items-attribute-value');
         Designer.ui.form.property.showAttribute('data-static-binding-items');
 
-        if(widget.selectItem()) {
+        if(widget.synchronize()) {
             widget.value.hide();
             Designer.ui.form.property.hideAttribute('data-items-attribute-value');
         } else if(binding && binding.datasourceName) {
