@@ -73,5 +73,4 @@ input[type="checkbox"]:focus {
 
 div[data-type=RadioGroup] {
   padding: 5px;
-  overflow: hidden;
 }
